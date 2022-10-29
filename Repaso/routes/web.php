@@ -6,13 +6,16 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+*/
+
+Route::get('/', [controladorVistas::class,'showWelcome'])->name('apWelc');  
+Route::get('Inicio', [controladorVistas::class,'showPrincipal'])->name('apPrin');
+Route::get('Formulario', [controladorVistas::class,'showRegistro'])->name('apRegi');
+
+/*Rutas POST para envio de datos en formulario*/
+Route::post('CargarRegistro', [controladorVistas::class,'procesarRegistro'])->name('CarReg');
