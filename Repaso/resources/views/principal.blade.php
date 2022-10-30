@@ -292,7 +292,7 @@ div, h2, p, figure {
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   </p>
                   <footer class="article-info">
-                    <span>By Joe Smith</span>
+                    <span>By Unko Nami</span>
                     <span>42 comments</span>
                   </footer>
                 </div>

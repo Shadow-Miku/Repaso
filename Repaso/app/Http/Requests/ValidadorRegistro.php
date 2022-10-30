@@ -24,7 +24,16 @@ class ValidadorRegistro extends FormRequest
     public function rules()
     {
         return [
-            //
+            'intISBN'=>'required',
+            'txtTitulo'=>'required',
+            'txtAutor'=>'required',
+            'intPaginas'=>'required',
+            'txtEditorial'=>'required',
+            'email'=>'required',
+            'intISBN'=>'numeric|required|min:13',
+            'intPaginas'=>'numeric|required',
+            'email'=>'required|string|email',
+            'txtAutor'=>'required|min:4',
         ];
     }
 }
