@@ -16,7 +16,7 @@
   @import url(https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css);
 
   html {
-    background: mediumseagreen;
+    background: rgb(162, 179, 211);
     font-size: 14px;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
