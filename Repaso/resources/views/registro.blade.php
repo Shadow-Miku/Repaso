@@ -1,4 +1,5 @@
 @extends('plantilla')
+
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 @section('contenido')
@@ -6,7 +7,7 @@
     @if (session()->has('confirmacion'))
         {!!" <script> Swal.fire(
             'Muy bien!',
-            'Libro xxxxxxxx registrado',
+            'Libro txtTitulo guardado',
             'success'
           ) </script>"!!}        
     @endif
@@ -40,38 +41,38 @@
                     <!--Errores individuales y guardar los datos escritos-->
                     
                     <div class="mb-3">
-                        <label class="form-label">ISBN: </label>
-                        <input type="numeric" class="form-control" required name="intISBN" value="{{old('intISBN')}}">
+                        <label class="form-label">ISBN </label>
+                        <input type="numeric" placeholder="digite el ISBN" class="form-control" required name="intISBN" value="{{old('intISBN')}}">
                         <p class="text-primary fst-italic"> {{ $errors->first('intISBN') }} </p>
                     </div>
                     
                     <div class="mb-3">
-                        <label class="form-label">Titulo: </label>
-                        <input type="text" class="form-control" required name="txtTitulo" value="{{old('txtTitulo')}}">
+                        <label class="form-label">Titulo </label>
+                        <input type="text" placeholder="Titulo del libro" class="form-control" required name="txtTitulo" value="{{old('txtTitulo')}}">
                         <p class="text-primary fst-italic"> {{ $errors->first('txtTitulo') }}</p>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Autor: </label>
-                        <input type="text" class="form-control" required name="txtAutor" value="{{old('txtAutor')}}">
+                        <label class="form-label">Autor </label>
+                        <input type="text" placeholder="Autor del libro" class="form-control" required name="txtAutor" value="{{old('txtAutor')}}">
                         <p class="text-primary fst-italic"> {{ $errors->first('txtAutor') }} </p>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Paginas: </label>
-                        <input type="numeric" class="form-control" required name="intPaginas" value="{{old('intPaginas')}}">
+                        <label class="form-label">Paginas </label>
+                        <input type="numeric" placeholder="Digite el número total de paginas del libro" class="form-control" required name="intPaginas" value="{{old('intPaginas')}}">
                         <p class="text-primary fst-italic"> {{ $errors->first('intPaginas') }} </p>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Editorial: </label>
-                        <input type="text" class="form-control" name="txtEditorial" value="{{old('txtEditorial')}}">
+                        <label class="form-label">Editorial </label>
+                        <input type="text" placeholder="Editorial que publica el libro" class="form-control" name="txtEditorial" value="{{old('txtEditorial')}}">
                         <p class="text-primary fst-italic"> {{ $errors->first('txtEditorial') }} </p>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Email de la editorial: </label>
-                        <input type="email" class="form-control" name="email" value="{{old('email')}}">
+                        <label class="form-label">Email de la editorial </label>
+                        <input type="email" placeholder="ejemplo@gmail.com" class="form-control" name="email" value="{{old('email')}}">
                         <p class="text-primary fst-italic"> {{ $errors->first('email') }} </p>
                     </div>
 
