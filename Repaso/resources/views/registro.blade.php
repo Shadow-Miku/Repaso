@@ -41,25 +41,25 @@
                     
                     <div class="mb-3">
                         <label class="form-label">ISBN: </label>
-                        <input type="numeric" class="form-control" name="intISBN" value="{{old('intISBN')}}">
+                        <input type="numeric" class="form-control" required name="intISBN" value="{{old('intISBN')}}">
                         <p class="text-primary fst-italic"> {{ $errors->first('intISBN') }} </p>
                     </div>
                     
                     <div class="mb-3">
                         <label class="form-label">Titulo: </label>
-                        <input type="text" class="form-control" name="txtTitulo" value="{{old('txtTitulo')}}">
+                        <input type="text" class="form-control" required name="txtTitulo" value="{{old('txtTitulo')}}">
                         <p class="text-primary fst-italic"> {{ $errors->first('txtTitulo') }}</p>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Autor: </label>
-                        <input type="text" class="form-control" name="txtAutor" value="{{old('txtAutor')}}">
+                        <input type="text" class="form-control" required name="txtAutor" value="{{old('txtAutor')}}">
                         <p class="text-primary fst-italic"> {{ $errors->first('txtAutor') }} </p>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Paginas: </label>
-                        <input type="numeric" class="form-control" name="intPaginas" value="{{old('intPaginas')}}">
+                        <input type="numeric" class="form-control" required name="intPaginas" value="{{old('intPaginas')}}">
                         <p class="text-primary fst-italic"> {{ $errors->first('intPaginas') }} </p>
                     </div>
 
