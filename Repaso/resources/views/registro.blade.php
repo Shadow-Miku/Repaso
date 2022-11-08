@@ -5,9 +5,13 @@
 @section('contenido')
 
     @if (session()->has('confirmacion'))
+    <?php
+    $txtTitulo = session()->get('Variable');
+    ?>
+
         {!!" <script> Swal.fire(
             'Muy bien!',
-            'Libro txtTitulo guardado',
+            'Libro: $txtTitulo guardado',
             'success'
           ) </script>"!!}        
     @endif
