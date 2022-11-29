@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ValidadorRegistroA;
 use Illuminate\Http\Request;
+use DB;
+use Carbon\Carbon;
 
 class ControladorBDAU extends Controller
 {
@@ -13,7 +16,8 @@ class ControladorBDAU extends Controller
      */
     public function index()
     {
-        //
+        $ConsultaAU= DB::table('tb_autores')->get();
+        return view('CAutor',compact('ConsultaAU'));
     }
 
     /**
@@ -23,7 +27,7 @@ class ControladorBDAU extends Controller
      */
     public function create()
     {
-        //
+        return view('Autor');
     }
 
     /**
@@ -32,9 +36,16 @@ class ControladorBDAU extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ValidadorRegistroA $request)
     {
-        //
+        DB::table('tb_autores')->insert([
+            "nombre"=> $request->input('nombre'),
+            "librosPublicados"=> $request->input('cantidadLibros'),
+            "fechaNacimiento"=> $request->input('fechaNacimiento'),
+            "created_at"=> Carbon::now(),
+            "updated_at"=> Carbon::now()
+        ]);
+        return redirect('autor/create')->with('confirmacion','abc');
     }
 
     /**
@@ -45,7 +56,9 @@ class ControladorBDAU extends Controller
      */
     public function show($id)
     {
-        //
+        $consultaId= DB::table('tb_autores')->where('idAutores',$id)->first();
+
+        return view('EliminarAU', compact('consultaId'));
     }
 
     /**
@@ -56,7 +69,9 @@ class ControladorBDAU extends Controller
      */
     public function edit($id)
     {
-        //
+        $consultaId= DB::table('tb_autores')->where('idAutores',$id)->first();
+
+        return view('EditarAU', compact('consultaId'));
     }
 
     /**
@@ -66,9 +81,16 @@ class ControladorBDAU extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ValidadorRegistroA $request, $id)
     {
-        //
+        DB::table('tb_autores')->where('idAutores',$id)->update([
+            "nombre"=> $request->input('nombre'),
+            "librosPublicados"=> $request->input('cantidadLibros'),
+            "fechaNacimiento"=> $request->input('fechaNacimiento'),
+            "updated_at"=> Carbon::now()
+        ]);
+
+        return redirect('autor')->with('actualizar','abc');
     }
 
     /**
@@ -79,6 +101,8 @@ class ControladorBDAU extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('tb_autores')->where('idAutores',$id)->delete();
+
+        return redirect('autor')->with('elimina','abc');
     }
 }

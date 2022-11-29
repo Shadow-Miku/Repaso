@@ -24,7 +24,7 @@ class ValidadorRegistroA extends FormRequest
     public function rules()
     {
         return [
-            'fecha'=>'required',
+            'fechaNacimiento'=>'required',
             'cantidadLibros'=>'numeric|required|max:4',
             'nombre'=>'required|min:4',
         ];

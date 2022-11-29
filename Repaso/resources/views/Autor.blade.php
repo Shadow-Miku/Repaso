@@ -32,7 +32,7 @@
 
             <div class="card-body">
 
-                <form class="m-4" method="POST" action="CargarRegistroA">
+                <form class="m-4" method="POST" action="{{route('autor.store')}}">
                     @csrf
                     <!--Errores individuales y guardar los datos escritos-->
 
@@ -51,8 +51,8 @@
 
                     <div class="mb-3">
                         <label class="form-label">Fecha Nacimiento</label>
-                        <input type="date" id="date" class="form-control" name="fecha" value="{{old('fecha')}}">
-                        <p class="text-primary fst-italic"> {{ $errors->first('fecha') }} </p>
+                        <input type="date" id="date" class="form-control" name="fechaNacimiento" value="{{old('fechaNacimiento')}}">
+                        <p class="text-primary fst-italic"> {{ $errors->first('fechaNacimiento') }} </p>
                     </div>
             </div>
 

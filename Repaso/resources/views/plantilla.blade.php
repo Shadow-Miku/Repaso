@@ -200,23 +200,21 @@
                           <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Inicio</span>
                       </a>
                   </li>
-                  <!--
+                  <!--enlace pedidos-->
                   <li>
                       <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                           <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Registrar</span> </a>
                           <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                           <li class="w-100">
-                              <a href=" # " class="nav-link px-0"> <span class="d-none d-sm-inline">&nbsp; &nbsp; Registrar Articulos</span> </a>
+                              <a href=" {{ route('apRegi') }} " class="nav-link px-0"> <span class="d-none d-sm-inline">&nbsp; &nbsp; Registrar Libros</span> </a>
                           </li>
                           <li>
-                              <a href=" # " class="nav-link px-0"> <span class="d-none d-sm-inline">&nbsp; &nbsp; Registrar Comics</span> </a>
+                              <a href=" {{ route('autor.create') }} " class="nav-link px-0"> <span class="d-none d-sm-inline">&nbsp; &nbsp; Registrar Autor</span> </a>
                           </li>
-                          <li>
-                            <a href=" # " class="nav-link px-0"> <span class="d-none d-sm-inline">&nbsp; &nbsp; Registrar Proveedores</span> </a>
-                        </li>
                       </ul>
-                  </li>-->
-                  <!--enlace pedidos-->
+                  </li>
+                  
+                  <!--
                   <li>
                       <a href=" {{ route('apRegi') }} " class="nav-link px-0 align-middle">
                           <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Registrar Libro</span></a>
@@ -224,19 +222,20 @@
                   <li>
                       <a href=" {{ route('apAutor') }} " class="nav-link px-0 align-middle">
                           <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Registrar Autor</span></a>
-                  </li>
-             <!-- <li>
+                  </li>-->
+                  <li>
                       <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-                          <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Bootstrap</span></a>
+                          <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Consultar</span></a>
                       <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                           <li class="w-100">
-                              <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>
+                              <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">&nbsp; &nbsp; Consultar Libros</span></a>
                           </li>
                           <li>
-                              <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>
+                              <a href="{{ route('autor.index') }}" class="nav-link px-0"> <span class="d-none d-sm-inline">&nbsp; &nbsp; Consultar Autores</span></a>
                           </li>
                       </ul>
                   </li>
+                  <!-- 
                   <li>
                       <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                           <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
