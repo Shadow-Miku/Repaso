@@ -50,7 +50,7 @@
                    
 
                     <div class="mb-3">
-                        <label class="form-label">Fecha ingreso</label>
+                        <label class="form-label">Fecha Nacimiento</label>
                         <input type="date" id="date" class="form-control" name="fecha" value="{{old('fecha')}}">
                         <p class="text-primary fst-italic"> {{ $errors->first('fecha') }} </p>
                     </div>
