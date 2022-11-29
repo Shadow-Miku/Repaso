@@ -206,7 +206,7 @@
                           <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Registrar</span> </a>
                           <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                           <li class="w-100">
-                              <a href=" {{ route('apRegi') }} " class="nav-link px-0"> <span class="d-none d-sm-inline">&nbsp; &nbsp; Registrar Libros</span> </a>
+                              <a href=" {{ route('libro.create') }} " class="nav-link px-0"> <span class="d-none d-sm-inline">&nbsp; &nbsp; Registrar Libros</span> </a>
                           </li>
                           <li>
                               <a href=" {{ route('autor.create') }} " class="nav-link px-0"> <span class="d-none d-sm-inline">&nbsp; &nbsp; Registrar Autor</span> </a>
@@ -228,7 +228,7 @@
                           <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Consultar</span></a>
                       <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                           <li class="w-100">
-                              <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">&nbsp; &nbsp; Consultar Libros</span></a>
+                              <a href="{{ route('libro.index') }}" class="nav-link px-0"> <span class="d-none d-sm-inline">&nbsp; &nbsp; Consultar Libros</span></a>
                           </li>
                           <li>
                               <a href="{{ route('autor.index') }}" class="nav-link px-0"> <span class="d-none d-sm-inline">&nbsp; &nbsp; Consultar Autores</span></a>

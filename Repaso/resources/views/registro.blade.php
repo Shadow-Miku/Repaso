@@ -40,15 +40,9 @@
 
             <div class="card-body">
 
-                <form class="m-4" method="POST" action="CargarRegistro">
+                <form class="m-4" method="POST" action="{{route('libro.store')}}">
                     @csrf
                     <!--Errores individuales y guardar los datos escritos-->
-                    
-                    <div class="mb-3">
-                        <label class="form-label">ISBN </label>
-                        <input type="numeric" placeholder="digite el ISBN" class="form-control" required name="intISBN" value="{{old('intISBN')}}">
-                        <p class="text-primary fst-italic"> {{ $errors->first('intISBN') }} </p>
-                    </div>
                     
                     <div class="mb-3">
                         <label class="form-label">Titulo </label>
@@ -57,17 +51,32 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Autor </label>
-                        <input type="text" placeholder="Autor del libro" class="form-control" required name="txtAutor" value="{{old('txtAutor')}}">
-                        <p class="text-primary fst-italic"> {{ $errors->first('txtAutor') }} </p>
+                        <label class="form-label">ISBN </label>
+                        <input type="char" placeholder="digite el ISBN" class="form-control" required name="intISBN" value="{{old('intISBN')}}">
+                        <p class="text-primary fst-italic"> {{ $errors->first('intISBN') }} </p>
                     </div>
-
+                    
                     <div class="mb-3">
                         <label class="form-label">Paginas </label>
                         <input type="numeric" placeholder="Digite el número total de paginas del libro" class="form-control" required name="intPaginas" value="{{old('intPaginas')}}">
                         <p class="text-primary fst-italic"> {{ $errors->first('intPaginas') }} </p>
                     </div>
 
+                    <div class="mb-3">
+                        <label for="text" class="form-label">Autor </label>
+                        <select class="form-select" name="txtAutor" aria-label="Default select example">
+                            <option selected> Selecciona un autor...</option>
+
+                            @foreach ($categorias as $tb_autores)
+                                <option value="{{$tb_autores['idAutores']}}">{{$tb_autores['nombre']}}</option>
+                            @endforeach
+                        
+                        </select>
+                        <!--<input type="text" placeholder="Autor del libro" class="form-control" required name="txtAutor" value="{{old('txtAutor')}}">-->
+                    <p class="text-primary fst-italic" style="color: aqua"> 
+                        {{ $errors->first('txtAutor') }} </p>
+                    </div>
+          
                     <div class="mb-3">
                         <label class="form-label">Editorial </label>
                         <input type="text" placeholder="Editorial que publica el libro" class="form-control" name="txtEditorial" value="{{old('txtEditorial')}}">

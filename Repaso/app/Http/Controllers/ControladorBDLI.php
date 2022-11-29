@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ValidadorRegistro;
 use Illuminate\Http\Request;
+use DB;
+use Carbon\Carbon;
+use App\Models\tb_autores;
 
 class ControladorBDLI extends Controller
 {
@@ -13,7 +17,8 @@ class ControladorBDLI extends Controller
      */
     public function index()
     {
-        //
+        $ConsultaLI= DB::table('tb_libros')->get();
+        return view('CLibro',compact('ConsultaLI'));
     }
 
     /**
@@ -23,7 +28,9 @@ class ControladorBDLI extends Controller
      */
     public function create()
     {
-        //
+        $categorias = tb_autores::all();
+        return view('Registro',compact('categorias'));
+        //return view('Registro');
     }
 
     /**
@@ -32,9 +39,19 @@ class ControladorBDLI extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ValidadorRegistro $request)
     {
-        //
+        DB::table('tb_libros')->insert([
+            "titulo"=> $request->input('txtTitulo'),
+            "ISBN"=> $request->input('intISBN'),
+            "paginas"=> $request->input('intPaginas'),
+            "autor_id"=> $request->input('txtAutor'),
+            "editorial"=> $request->input('txtEditorial'),
+            "email"=> $request->input('email'),
+            "created_at"=> Carbon::now(),
+            "updated_at"=> Carbon::now()
+        ]);
+        return redirect('libro/create')->with('confirmacion','abc');
     }
 
     /**
@@ -45,7 +62,9 @@ class ControladorBDLI extends Controller
      */
     public function show($id)
     {
-        //
+        $consultaId= DB::table('tb_libros')->where('idLibros',$id)->first();
+
+        return view('EliminarLI', compact('consultaId'));
     }
 
     /**
@@ -56,7 +75,9 @@ class ControladorBDLI extends Controller
      */
     public function edit($id)
     {
-        //
+        $consultaId= DB::table('tb_libros')->where('idLibros',$id)->first();
+        $categorias = tb_autores::all();
+        return view('EditarLI', compact('consultaId'),compact('categorias'));
     }
 
     /**
@@ -66,9 +87,19 @@ class ControladorBDLI extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ValidadorRegistro $request, $id)
     {
-        //
+        DB::table('tb_libros')->where('idLibros',$id)->update([
+            "titulo"=> $request->input('txtTitulo'),
+            "ISBN"=> $request->input('intISBN'),
+            "paginas"=> $request->input('intPaginas'),
+            "autor_id"=> $request->input('txtAutor'),
+            "editorial"=> $request->input('txtEditorial'),
+            "email"=> $request->input('email'),
+            "updated_at"=> Carbon::now()
+        ]);
+
+        return redirect('libro')->with('actualizar','abc');
     }
 
     /**
@@ -79,6 +110,8 @@ class ControladorBDLI extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('tb_libros')->where('idLibros',$id)->delete();
+
+        return redirect('libro')->with('elimina','abc');
     }
 }

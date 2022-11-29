@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ControladorBDAU;
+use App\Http\Controllers\ControladorBDLI;
 use App\Http\Controllers\controladorRegistrarLibro;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\controladorVistas;
@@ -46,6 +47,28 @@ Route::get('autor/{id}/show', [ControladorBDAU::class,'show'])->name('autor.show
 Route::delete('autor/{id}', [ControladorBDAU::class,'destroy'])->name('autor.destroy');
 
 
+/*Rutas para controllador resourse Registrar(aka Libro)*/
+
+/*Create Libro*/
+Route::get('libro/create', [ControladorBDLI::class,'create'])->name('libro.create');
+
+/*Store Libro*/
+Route::post('libro', [ControladorBDLI::class,'store'])->name('libro.store');
+
+/*Index Libro*/
+Route::get('libro', [ControladorBDLI::class,'index'])->name('libro.index');
+
+/*Edit Libro*/
+Route::get('libro/{id}/edit', [ControladorBDLI::class,'edit'])->name('libro.edit');
+
+/*Update Libro*/
+Route::put('libro/{id}', [ControladorBDLI::class,'update'])->name('libro.update');
+
+/*Show Libro*/
+Route::get('libro/{id}/show', [ControladorBDLI::class,'show'])->name('libro.show');
+
+/*Delete Libro*/
+Route::delete('libro/{id}', [ControladorBDLI::class,'destroy'])->name('libro.destroy');
 
 
 

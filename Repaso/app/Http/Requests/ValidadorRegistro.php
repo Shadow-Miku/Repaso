@@ -33,7 +33,7 @@ class ValidadorRegistro extends FormRequest
             'intISBN'=>'numeric|required|min:13',
             'intPaginas'=>'numeric|required',
             'email'=>'required|string|email',
-            'txtAutor'=>'required|min:4',
+            'txtAutor'=>'required',
         ];
     }
 }

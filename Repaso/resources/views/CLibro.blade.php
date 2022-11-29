@@ -1,11 +1,11 @@
-@extends('Template')
+@extends('plantilla')
 
 @section('contenido')
 
 @if (session()->has('actualizar'))
         {!!" <script> Swal.fire(
             'Siuuuuuuuu!',
-            'Recuerdo fresquisimo!',
+            'Libro fresquisimo!',
             'success'
           ) </script>"!!}        
 @endif
@@ -13,28 +13,31 @@
 @if (session()->has('elimina'))
         {!!" <script> Swal.fire(
             'Siuuuuuuuu!',
-            'El recuerdo ya no anda fresh',
+            'El libro ya no anda fresh',
             'success'
           ) </script>"!!}        
 @endif
-    <h1 class="display-1 mt mt-4 mb-4 text-center"> Recuerdo </h1>
+    <h1 class="display-1 mt mt-4 mb-4 text-center"> Libros </h1>
 
-    @foreach($ConsultaRec as $consulta)
+    @foreach($ConsultaLI as $consulta)
 
     <div class="container col-md-6 mt-5 mb-5">
         <div class="card text-center">
             <div class="card-header">
-              <h5 class="text-primary text center">{{$consulta->fecha}}</h5>
+              <h5 class="text-primary text center">{{$consulta->titulo}}</h5>
             </div>
 
             <div class="card-body">
-              <h5 class="card-title"><{{$consulta->titulo}}</h5>
-              <p class="card-text"><{{$consulta->recuerdo}}</p>
+              <p class="card-text">{{$consulta->ISBN}}</p>
+              <p class="card-text">{{$consulta->paginas}}</p>
+              <p class="card-text">{{$consulta->autor_id}}</p>
+              <p class="card-text">{{$consulta->editorial}}</p>
+              <p class="card-text">{{$consulta->email}}</p>
             </div>
 
             <div class="card-footer text-muted">
-                <a href="{{route('recuerdo.show',$consulta->idRecuerdos)}}" class="btn btn-danger">Eliminar alv</a>
-                <a href="{{route('recuerdo.edit',$consulta->idRecuerdos)}}" class="btn btn-primary">Cambia el pasado we</a>
+                <a href="{{route('libro.show',$consulta->idLibros)}}" class="btn btn-danger">Si no lo veo no existe</a>
+                <a href="{{route('libro.edit',$consulta->idLibros)}}" class="btn btn-primary">Cambia la info we</a>
             </div>
           </div>
 
