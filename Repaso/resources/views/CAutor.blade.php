@@ -43,5 +43,6 @@
           @endforeach
 
     </div>
+  </div>
 
 @stop
